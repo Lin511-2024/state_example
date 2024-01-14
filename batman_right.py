@@ -12,11 +12,15 @@ class CustomMachine(WebMachine):
 
 logging.basicConfig(level=logging.INFO)
 
-states = ['a', 'b','c','d','e','f','g','h','i','j','k','l', 'batman1','batman2','batman3','accepting']
+states = ['a', 'b','c','d','e',
+          'f','g','h','i','j',
+          'k','l','m', 'n', 'o', 
+          'p',
+          'batman1','batman2','batman3','accepting']
 
 transitions =transitions = [
     { 'trigger': 'Na', 'source': 'a', 'dest': 'b' },
-    { 'trigger': 'Batman!', 'source': 'l', 'dest': 'batman1' },
+    { 'trigger': 'Batman!', 'source': 'p', 'dest': 'batman1' },
     { 'trigger': 'Batman!', 'source': 'batman1', 'dest': 'batman2' },
     { 'trigger': 'Batman!', 'source': 'batman2', 'dest': 'batman3' },
     { 'trigger': 'Na', 'source': 'batman1', 'dest': 'b' },
@@ -24,7 +28,7 @@ transitions =transitions = [
     { 'trigger': 'ε', 'source': 'batman1', 'dest': 'accepting'}
 ]
 
-na_labels = 'bcdefghijkl'
+na_labels = 'bcdefghijklmnop'
 for idx, label in enumerate(na_labels):
     if idx+1 < len(na_labels):
         transitions.append(
